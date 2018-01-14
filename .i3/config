@@ -118,14 +118,14 @@ set $mocp_ctrl [s]top [p]lay [n]ext p[r]ev [u]p vol [d]own vol
 
 set $term	urxvt 
 set $locker	$HOME/.scripts/lock/lock.sh
-set $vold	$HOME/.i3/volume_controller.bash -d
-set $voli	$HOME/.i3/volume_controller.bash -i
-set $volm	$HOME/.i3/volume_controller.bash -m
-set $sshot	$HOME/.i3/take_screenshot.bash
+set $vold	$HOME/.scripts/volume_controller.sh -d
+set $voli	$HOME/.scripts/volume_controller.sh -i
+set $volm	$HOME/.scripts/volume_controller.sh -m
+set $sshot	$HOME/.scripts/screenshot.sh
 set $bc		$HOME/.scripts/rofi_bc.sh
-set $startrec	--no-startup-id bash ~/.i3/rec_screen.sh
+set $startrec	--no-startup-id bash ~/.scripts/rec_screen.sh
 set $stoprec	--no-startup-id killall ffmpeg
-set $focusscreen	exec --no-startup-id $HOME/.i3/focus_noFilter.py
+set $focusscreen	exec --no-startup-id $HOME/.scripts/focus_noFilter.py
 set $mocp	urxvt -e mocp
 set $cfm	urxvt -e ranger
 set $gfm	thunar
