@@ -1,0 +1,100 @@
+-- vim: ts=4 sw=4 noet ai cindent syntax=lua
+--[[
+Conky, a system monitor, based on torsmo
+
+Any original torsmo code is licensed under the BSD license
+
+All code written since the fork of torsmo is licensed under the GPL
+
+Please see COPYING for details
+
+Copyright (c) 2004, Hannu Saransaari and Lauri Hakkarainen
+Copyright (c) 2005-2012 Brenden Matthews, Philip Kovacs, et. al. (see AUTHORS)
+All rights reserved.
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+]]
+
+conky.config = {
+    double_buffer = true,
+    alignment = 'br',
+    use_xft = true,
+    font = 'System San Francisco Display:size=10',
+	xftalpha = 0.1,
+    background = no,
+    own_window = true,
+    own_window_class = 'Conky',
+    own_window_type = 'override',
+    own_window_transparent = false,
+	own_window_argb_visual = true,
+	own_window_argb_value = 50,
+	own_window_colour = '000000',
+	own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+	--
+	short_units = true,
+	--
+	out_to_console = false,
+    out_to_stderr = false,
+	--
+    update_interval = 1,
+	draw_shades = false,
+	draw_outline = false,
+	draw_borders = false,
+    draw_graph_borders = false,
+	default_color = '777777',
+    default_outline_color = '222222',
+    default_shade_color = '444444',
+	--
+    border_width = 2,
+    cpu_avg_samples = 2,
+    gap_x = 50,
+    gap_y = 20,
+    minimum_height = 5,
+	minimum_width = 300,
+    maximum_width= 300,
+    net_avg_samples = 2,
+    no_buffers = true,
+    extra_newline = false,
+    stippled_borders = 0,
+    uppercase = false,
+    use_spacer = 'none',
+    show_graph_scale = false,
+    show_graph_range = false
+}
+
+conky.text = [[
+
+${color #444444}${font DejaVu Sans Mono:bold:size=10}${execpi 3600 $HOME/.scripts/conky/conky_cal.sh}
+
+${color #444444}$hr
+
+${execpi 1 $HOME/.scripts/conky/conky_mocp.sh}
+${execibar 1 $HOME/.scripts/conky/conky_mocp_pbar.sh}
+
+${color #444444}$hr
+$font
+${font System San Francisco Display:bold:size=15}${color #333333}$mem/$memmax${alignr}${color}RAM
+${color #555555}$font${membar 6}
+$color${top_mem name 1}$alignr${color #444444}${top_mem mem_res 1}
+$color${top_mem name 2}$alignr${color #444444}${top_mem mem_res 2}
+$color${top_mem name 3}$alignr${color #444444}${top_mem mem_res 3}
+
+${font System San Francisco Display:bold:size=15}${color #333333}$cpu%${alignr}${color}CPU
+${color #555555}$font${cpubar 6}
+$color${top name 1}$alignr${color #444444}${top cpu 1}%
+$color${top name 2}$alignr${color #444444}${top cpu 2}%
+$color${top name 3}$alignr${color #444444}${top cpu 3}%
+
+${alignr}${color #333333}${execpi 3600 whoami}@$nodename
+${alignr 0}${font System San Francisco Display:normal:size=9}${color #333333}uptime ${color #444444}$uptime_short
+]]

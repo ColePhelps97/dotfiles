@@ -1,0 +1,329 @@
+###############################################################################
+#
+#	Keymap
+#
+#	Navigation
+#	win+h/j/k/l		move around windows
+#	win+Shift+h/j/k/l	move current window
+#	win+1..0		go to not specified workspaces
+#	win+F1			go to Firefox workspace
+#	win+F2			go to im's (Telegram, jabber) workspace
+#	win+F3			go to Idea workspace
+#	win+F4			go to music workspace
+#	win+F9			go to Steam workspace
+#	win+F10			go to Discord workspace
+#	win+n/p			go to next/prev workspace
+#
+#	Here's back and forth active, so u can go to prev workspace easly
+#
+#	win+q			nothing
+#	win+Shift+q		close window
+#	win+w			wallpaper mode
+#	win+Shift+w		nothing
+#	win+e			split toggle (replace tabbed and stacked
+#				and if sliting is current mode change split
+#				orientation of active window)
+#	win+Shift+e		exit i3 session
+#	win+r			resize mode
+#	win+Shift+r		nothing
+#	win+t			switch layout to tabbed mode
+#	win+Shift+t		nothing
+#	win+y			nothing
+#	win+Shift+y		nothing
+#	win+u			nothing
+#	win+Shift+u		nothing
+#	win+i			nothing
+#	win+Shift+i		nothing
+#	win+o			nothing
+#	win+Shift+o		nothing
+#	win+p			go to prev workspace in order on bar
+#	win+Shift+p		nothing
+#	win+[			decrease volume by 5%
+#	win+Shift+[		TODO decrease volume by 10%
+#	win+]			increase volume by 5%
+#	win+Shift+]		TODO increase volume by 10%
+#	win+a			ranger
+#	win+Shift+a		nothing
+#	win+s			stacking mode
+#	win+Shift+s		nothing
+#	win+d			rofi
+#	win+Shift+d		nothing
+#	win+f			focus
+#	win+Shift+f		fullscreen
+#	win+g			nothing
+#	win+Shift+g		nothing
+#	h/j/k/l			controls
+#	win+semicolon		nothing
+#	win+Shift+semicolon	nothing
+#	win+z			nothing
+#	win+Shift+z		nothing
+#	win+x			nothing
+#	win+Shift+x		nothing
+#	win+c			TODO rofi calculator
+#	win+Shift+c		refresh config file??
+#	win+v			set vertical split mode
+#	win+Shift+v		nothing
+#	win+b			set horizontal split mode
+#	win+Shift+b		nothing
+#	win+n			next workspace
+#	win+Shift+n		nothing
+#	win+m			mocp control mode
+#		s	stop
+#		p	play
+#		r	prev song
+#		n	next song
+#		u	volume up
+#		d	volume down
+#
+#	win+Shift+m		nothing
+#	win+,			nothing
+#	win+Shift+,		nothing
+#	win+Insert		start video
+#	win+Shift+Insert	stop video
+#	...
+#
+#
+#
+###############################################################################
+
+
+set $mod Mod4
+
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+set $wsff "&#xf269; firefox"
+set $wsim "&#xf075; im"
+set $wside "&#xf121; ide"
+set $wsm "&#xf04b; music"
+set $wsdis "discord"
+#set $ws16 "1"
+
+set $focused-text-color		#111111
+set $focused-bg-color		#777777
+set $unfocused-text-color	#777777
+set $unfocused-bg-color		#222222
+set $border-color		#222222
+
+set $wallpapermode [r]andom [n]ext [p]rev
+set $system_mode [l]ock [r]eboot [s]leep shut[d]own
+set $mocp_ctrl [s]top [p]lay [n]ext p[r]ev [u]p vol [d]own vol
+
+set $term	urxvt 
+set $locker	$HOME/.scripts/lock/lock.sh
+set $vold	$HOME/.i3/volume_controller.bash -d
+set $voli	$HOME/.i3/volume_controller.bash -i
+set $volm	$HOME/.i3/volume_controller.bash -m
+set $sshot	$HOME/.i3/take_screenshot.bash
+set $bc		$HOME/.scripts/rofi_bc.sh
+set $startrec	--no-startup-id bash ~/.i3/rec_screen.sh
+set $stoprec	--no-startup-id killall ffmpeg
+set $focusscreen	exec --no-startup-id $HOME/.i3/focus_noFilter.py
+set $mocp	urxvt -e mocp
+set $cfm	urxvt -e ranger
+set $gfm	thunar
+
+###############################################################################
+
+font pango:System San Francisco Display 10
+floating_modifier $mod
+focus_follows_mouse no
+workspace_auto_back_and_forth yes
+hide_edge_borders both
+
+gaps inner 10
+gaps outer 10
+smart_gaps on
+
+new_window pixel 2
+
+###############################################################################
+
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2 
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+bindsym $mod+F1 workspace $wsff
+bindsym $mod+F2 workspace $wsim
+bindsym $mod+F3 workspace $wside
+bindsym $mod+F4 workspace $wsm
+bindsym $mod+F9 workspace $wsdis
+
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+F1 move container to workspace $wsff
+#bindsym $mod+Shift+F2 move container to workspace im
+#bindsym $mod+Shift+F3 move container to workspace ide
+#bindsym $mod+Shift+F4 move container to workspace music
+
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+bindsym $mod+b split h
+bindsym $mod+v split v
+
+bindsym $mod+s layout stacking
+bindsym $mod+t layout tabbed
+bindsym $mod+e layout toggle split
+
+bindsym $mod+Shift+space floating toggle
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+#bindsym $mod+a focus parent
+#bindsym $mod+d focus child
+
+bindsym $mod+n workspace next
+bindsym $mod+p workspace prev
+
+###############################################################################
+
+bindsym $mod+Return exec $term
+bindsym $mod+Shift+q kill
+bindsym $mod+d exec rofi -show run
+
+bindsym $mod+a exec $cfm
+#bindsym $mod+s exec $gfm
+#
+bindsym $mod+c exec $bc
+
+bindsym --release Print exec $sshot
+
+bindsym $mod+bracketleft exec --no-startup-id $vold
+bindsym $mod+bracketright exec --no-startup-id $voli
+bindsym $mod+backslash exec --no-startup-id $volm
+
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec i3-msg exit
+
+bindsym $mod+f $focusscreen
+bindsym $mod+Shift+f fullscreen
+
+bindsym $mod+Insert exec $startrec
+bindsym $mod+Shift+Insert exec $stoprec
+
+###############################################################################
+
+#for_window [class="URxvt"] title_format ""
+for_window [class="Steam" title="Friends"] floating enable
+for_window [class="feh"] floating enable
+#for_window [class="Firefox"] border pixel 0
+
+assign [class="Firefox"] $wsff
+assign [class="TelegramDesktop"] $wsim
+assign [class="jetbrains-idea"] $wside
+assign [class="discord"] $wsdis
+
+###############################################################################
+
+exec --no-startup-id nitrogen --restore
+exec --no-startup-id conky
+exec --no-startup-id compton -b
+exec --no-startup-id setxkbmap -layout us,ru -option grp:caps_toggle,grp_led:caps
+#exec --no-starup-id /home/colephelps/.i3/set_monitors.bash
+exec --no-startup-id autocutsel&
+exec --no-startup-id i3-msg 'exec firefox'
+exec --no-startup-id i3-msg 'exec discord'
+exec --no-startup-id i3-msg "exec /home/colephelps/Downloads/Telegram/Telegram"
+exec --no-startup-id i3-msg "exec --no-startup-id /home/colephelps/Downloads/idea-IU-172.4343.14/bin/idea.sh"
+
+################################################################################
+
+bindsym $mod+r mode "resize"
+bindsym $mod+w mode "$wallpapermode"
+bindsym $mod+Pause mode "$system_mode"
+bindsym $mod+m mode "$mocp_ctrl"
+
+###############################################################################
+
+mode "$mocp_ctrl" {
+	bindsym s exec --no-startup-id mocp --pause; mode "default"
+	bindsym p exec --no-startup-id mocp --unpause; mode "default"
+	bindsym n exec --no-startup-id mocp --next; 
+	bindsym r exec --no-startup-id mocp --previous; 
+	bindsym u exec --no-startup-id mocp --volume +10; 
+	bindsym d exec --no-startup-id mocp --volume -10;
+	bindsym Escape mode "default"
+}
+
+mode "$wallpapermode" {
+	bindsym r exec ~/.i3/nitrogen/nitrogen_set_random.sh
+	bindsym Escape mode "default"
+}
+
+mode "resize" {
+        bindsym l resize shrink width 10 px or 10 ppt
+        bindsym j resize grow height 10 px or 10 ppt
+        bindsym k resize shrink height 10 px or 10 ppt
+        bindsym h resize grow width 10 px or 10 ppt
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+mode "$system_mode" {
+	bindsym l exec --no-startup-id $locker; mode "default"
+	bindsym r exec --no-startup-id systemctl reboot; mode "default"
+	bindsym d exec --no-startup-id systemctl poweroff -i; mode "default"
+
+	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+###############################################################################
+
+#colors
+#			border		bground			text			indicator
+client.focused          $border-color	$focused-bg-color	$focused-text-color	$focused-bg-color
+client.unfocused        $border-color	$unfocused-bg-color	$unfocused-text-color	$unfocused-bg-color
+client.focused_inactive $border-color	$unfocused-bg-color	$unfocused-text-color	$unfocused-bg-color
+client.urgent           $border-color	$focused-bg-color	$focused-text-color	$unfocused-bg-color
+client.background       		$border-color
+
+###############################################################################
+
+bar {
+	status_command i3blocks -c /home/colephelps/.i3/i3blocks.conf
+	strip_workspace_numbers yes
+	position top
+	font pango:System San Francisco Display 10
+	tray_output none
+	colors {
+		background 	$unfocused-bg-color
+		separator	$unfocused-text-color
+		#			border		bg			text
+		focused_workspace	$border-color	$focused-bg-color	$focused-text-color
+		inactive_workspace	$border-color	$unfocused-bg-color	$unfocused-text-color
+		urgent_workspace	$border-color	#555555			$focused-text-color
+	}
+}
