@@ -1,0 +1,118 @@
+!--------------------------------
+!XTerm
+!--------------------------------
+XTerm*utf8Title: 	true
+XTerm*faceName: 	-*-courier-medium-r-normal-14-140-*-*-fn-*-*
+XTerm*faceSize:		13
+xterm*boldFont:	
+xterm*scrollBar:	false
+xter*geometry:		80x80
+xterm*eightBigInput:	false
+xterm*metaSendsEscape:	true
+xterm*colorBDMode:	true
+xterm*boldMode:         on
+xterm*alwaysBoldMode:   false
+xterm*dynamicColors:    on
+xterm*colorMode:        on
+xterm*saveLines:        10000
+xterm*visualBell:       false
+
+!---------------------------
+! Цвета 
+!---------------------------
+xterm*colorBD:     #e6d51d
+xterm*background:  #111111
+!xterm*foreground:  #b4b4b4
+! Чёрный
+!*color0:      #000000
+!*color8:      #555753
+! Красный
+!*color1:      #b6212d
+!*color9:      #ff6565
+! Зелёный
+!*color2:      #4c8d00
+!*color10:     #6bbe1a
+! Жёлтый
+!*color3:      #ff8040
+!*color11:     #e6d51d
+! Синий
+!*color4:      #0086d2
+!*color12:     #00d2ff
+! Маджента
+!*color5:      #963c59
+!*color13:     #d3649f
+! Циановый
+!*color6:      #105952
+!*color14:     #177f75
+! Белый
+!*color7:      #cdcaa9
+!*color15:     #ffffff
+
+!-------------------------!
+! urxvt			  !
+! ------------------------!
+
+!font
+URxvt.font: xft:menlo:pixelsize=12,style=regular
+URxvt.letterSpace: -1
+
+!scrollbar
+URxvt.scrollBar: false
+
+!colors
+!URxvt.background: #222222
+!URxvt.foreground: #999999
+URxvt.fading: 40
+!URxvt.shading: 100
+!URxvt.transparent: true
+URxvt.depth:	32
+URxvt.background:	rgba:0100/0100/0100/c800
+URxvt.tintColor: #222222
+
+!URvxt.color0: #ff0000
+
+URxvt.cursorBlink: false
+
+*foreground: #999999
+!special
+*.foreground:   #999999
+*.background:   #222222
+*.cursorColor:  #999999
+
+! black
+*color0:       #555555
+*color8:       #555555
+
+! red
+*color1:       #666666
+*color9:       #666666
+
+! green
+*color2:       #777777
+*color10:      #777777
+
+! yellow
+*color3:       #888888
+*color11:      #888888
+
+
+!blue
+*color4:       #444444
+*color12:      #444444
+
+! magenta
+*color5:       #555555
+*color13:      #555555
+
+! cyan
+*color6:       #666666
+*color14:      #666666
+
+! white
+*color7:       #777777
+*color15:      #777777
+
+
+
+!pipes.color0:       red
+!pipes.color1:       #ff0000
